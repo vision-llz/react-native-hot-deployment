@@ -46,7 +46,7 @@ module.exports={
 //下载安装包，下载完成后自动跳转安装界面
 DownloadApk.downloading(url, "描述");
 
-//下载文件压缩包，地址为自己服务器上部署的地址，压缩包命名应为bundle_zip，里面包含index.android.bundle和资源文件(drawable\drawable-****)
+//下载文件压缩包，地址为自己服务器上部署的地址，压缩包命名应为bundle.zip，里面包含index.android.bundle和资源文件(drawable\drawable-****)
 Download.downloading(url);
 
 //下载进度监听，下载完成后可调用RestartApp.Restart()重启app
