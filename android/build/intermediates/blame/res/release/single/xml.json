@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "G:\\wms-pda\\node_modules\\react-native-hot-deployment\\android\\build\\intermediates\\res\\merged\\release\\xml\\file_paths.xml",
+        "source": "G:\\wms-pda\\node_modules\\react-native-hot-deployment\\android\\src\\main\\res\\xml\\file_paths.xml"
+    },
+    {
+        "merged": "G:\\wms-pda\\node_modules\\react-native-hot-deployment\\android\\build\\intermediates\\res\\merged\\release\\xml\\preferences.xml",
+        "source": "C:\\Users\\92044\\.android\\build-cache\\f16eb471810af3fbcdc9d89acca463ca9925252c\\output\\res\\xml\\preferences.xml"
+    }
+]

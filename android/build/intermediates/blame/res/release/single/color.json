@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "G:\\wms-pda\\node_modules\\react-native-hot-deployment\\android\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_dark.xml",
+        "source": "C:\\Users\\92044\\.android\\build-cache\\fe7fc49b14f6b5d09548db0d0051dc7b50bf9a87\\output\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "G:\\wms-pda\\node_modules\\react-native-hot-deployment\\android\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "C:\\Users\\92044\\.android\\build-cache\\fe7fc49b14f6b5d09548db0d0051dc7b50bf9a87\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "G:\\wms-pda\\node_modules\\react-native-hot-deployment\\android\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_light.xml",
+        "source": "C:\\Users\\92044\\.android\\build-cache\\fe7fc49b14f6b5d09548db0d0051dc7b50bf9a87\\output\\res\\color\\abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "G:\\wms-pda\\node_modules\\react-native-hot-deployment\\android\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_dark.xml",
+        "source": "C:\\Users\\92044\\.android\\build-cache\\fe7fc49b14f6b5d09548db0d0051dc7b50bf9a87\\output\\res\\color\\abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "G:\\wms-pda\\node_modules\\react-native-hot-deployment\\android\\build\\intermediates\\res\\merged\\release\\color\\switch_thumb_material_light.xml",
+        "source": "C:\\Users\\92044\\.android\\build-cache\\fe7fc49b14f6b5d09548db0d0051dc7b50bf9a87\\output\\res\\color\\switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "G:\\wms-pda\\node_modules\\react-native-hot-deployment\\android\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_dark.xml",
+        "source": "C:\\Users\\92044\\.android\\build-cache\\fe7fc49b14f6b5d09548db0d0051dc7b50bf9a87\\output\\res\\color\\abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "G:\\wms-pda\\node_modules\\react-native-hot-deployment\\android\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_light.xml",
+        "source": "C:\\Users\\92044\\.android\\build-cache\\fe7fc49b14f6b5d09548db0d0051dc7b50bf9a87\\output\\res\\color\\abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "G:\\wms-pda\\node_modules\\react-native-hot-deployment\\android\\build\\intermediates\\res\\merged\\release\\color\\switch_thumb_material_dark.xml",
+        "source": "C:\\Users\\92044\\.android\\build-cache\\fe7fc49b14f6b5d09548db0d0051dc7b50bf9a87\\output\\res\\color\\switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "G:\\wms-pda\\node_modules\\react-native-hot-deployment\\android\\build\\intermediates\\res\\merged\\release\\color\\abc_search_url_text.xml",
+        "source": "C:\\Users\\92044\\.android\\build-cache\\fe7fc49b14f6b5d09548db0d0051dc7b50bf9a87\\output\\res\\color\\abc_search_url_text.xml"
+    }
+]

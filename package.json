@@ -1,0 +1,45 @@
+{
+  "_from": "react-native-hot-deployment",
+  "_id": "react-native-hot-deployment@1.0.3",
+  "_inBundle": false,
+  "_integrity": "sha1-QuGHugu6ddd4ZkVfgRQns9rtFqg=",
+  "_location": "/react-native-hot-deployment",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "react-native-hot-deployment",
+    "name": "react-native-hot-deployment",
+    "escapedName": "react-native-hot-deployment",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/react-native-hot-deployment/download/react-native-hot-deployment-1.0.2.tgz",
+  "_shasum": "42e187ba0bba75d77866455f811427b3daed16a8",
+  "_spec": "react-native-hot-deployment",
+  "_where": "G:\\wms-pda",
+  "author": {
+    "name": "xiaomo"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "## Getting started",
+  "keywords": [
+    "react-native"
+  ],
+  "license": "热更新插件",
+  "main": "index.js",
+  "name": "react-native-hot-deployment",
+  "peerDependencies": {
+    "react-native": "^0.41.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.3"
+}
