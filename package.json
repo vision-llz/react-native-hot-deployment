@@ -1,6 +1,6 @@
 {
   "_from": "react-native-hot-deployment",
-  "_id": "react-native-hot-deployment@1.0.4",
+  "_id": "react-native-hot-deployment@1.0.5",
   "_inBundle": false,
   "_integrity": "sha1-QuGHugu6ddd4ZkVfgRQns9rtFqg=",
   "_location": "/react-native-hot-deployment",
@@ -41,5 +41,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.0.4"
+  "version": "1.0.5"
 }

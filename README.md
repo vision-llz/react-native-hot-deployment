@@ -54,12 +54,11 @@ this.listener = DeviceEventEmitter.addListener('downloadZipStatus', (e) => {
 	if (e && e.status === "success") {
 		//下载成功
 		RestartApp.Restart()
-	} else if (e && e.status === "exist") {
-		//下载失败
 	} else if (e && e.status) {
 		//下载进度
 		console.log("下载进度====>" + e.status + "%")
 	} else {
+		//失败
 	}
 })
 
@@ -85,5 +84,6 @@ def appVersion = getAppVersion()
 android{defaultconfig{versionName appVersion}}
 
 
+//会android原生的同学可以把插件拉取下来根据需求自行更改
 ```
   
