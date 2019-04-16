@@ -1,3 +1,5 @@
+实践过程CSDN有写
+https://blog.csdn.net/sinat_35093406/article/details/87938040
 
 # react-native-hot-deployment
 
