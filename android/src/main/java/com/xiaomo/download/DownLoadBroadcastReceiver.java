@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
-import android.support.v7.appcompat.BuildConfig;
 import android.widget.Toast;
 import java.io.File;
 import android.os.Build;

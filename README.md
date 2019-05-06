@@ -17,16 +17,31 @@
 1. Open up `android/app/src/main/java/[...]/MainApplication.java`
   - Add `import com.xiaomo.HotDeploymentPackage;;` to the imports at the top of the file
   - Add `new HotDeploymentPackage()` to the list returned by the `getPackages()` method
+
 2. Append the following lines to `android/settings.gradle`:
   	```
   	include ':react-native-hot-deployment'
   	project(':react-native-hot-deployment').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-hot-deployment/android')
   	```
+
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
-      compile project(':react-native-hot-deployment')
+    compile project(':react-native-hot-deployment')
   	```
-
+4. add `MainApplication`
+		```
+		@Override
+    protected String getJSBundleFile() {
+      Log.d("TAG","进入getJSBundleFile");
+      String jsBundleFile =  getFilesDir().getAbsolutePath()+"/index.android.bundle";
+      File file = new File(jsBundleFile);
+      if(file != null && file.exists()) {
+        return jsBundleFile;
+      } else {
+        return super.getJSBundleFile();
+      }
+    }
+		```
 
 ## Usage
 ```javascript
