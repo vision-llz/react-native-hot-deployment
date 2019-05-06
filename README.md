@@ -31,8 +31,8 @@ https://blog.csdn.net/sinat_35093406/article/details/87938040
     compile project(':react-native-hot-deployment')
   	```
 4. add `MainApplication`
-		```
-		@Override
+	```
+    @Override
     protected String getJSBundleFile() {
       Log.d("TAG","进入getJSBundleFile");
       String jsBundleFile =  getFilesDir().getAbsolutePath()+"/index.android.bundle";
@@ -43,7 +43,7 @@ https://blog.csdn.net/sinat_35093406/article/details/87938040
         return super.getJSBundleFile();
       }
     }
-		```
+	```
 
 ## Usage
 ```javascript
