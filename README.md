@@ -32,9 +32,10 @@ https://blog.csdn.net/sinat_35093406/article/details/87938040
   	```
 4. add `MainApplication`
 	```
+    import java.io.File;
+    
     @Override
     protected String getJSBundleFile() {
-      Log.d("TAG","进入getJSBundleFile");
       String jsBundleFile =  getFilesDir().getAbsolutePath()+"/index.android.bundle";
       File file = new File(jsBundleFile);
       if(file != null && file.exists()) {
