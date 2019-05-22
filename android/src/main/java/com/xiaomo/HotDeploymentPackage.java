@@ -2,7 +2,6 @@
 package com.xiaomo;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import com.facebook.react.ReactPackage;
@@ -13,6 +12,7 @@ import com.facebook.react.bridge.JavaScriptModule;
 import com.xiaomo.download.DownloadApk;
 import com.xiaomo.hotpush.Download;
 import com.xiaomo.hotpush.RestartApp;
+import com.xiaomo.hotpush.UpdataVersion;
 
 public class HotDeploymentPackage implements ReactPackage {
     @Override
@@ -21,6 +21,7 @@ public class HotDeploymentPackage implements ReactPackage {
         modules.add(new Download(reactContext));
         modules.add(new DownloadApk(reactContext));
         modules.add(new RestartApp(reactContext));
+        modules.add(new UpdataVersion(reactContext));
         return modules;
     }
 
