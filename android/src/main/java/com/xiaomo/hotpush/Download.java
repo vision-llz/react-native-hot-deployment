@@ -29,6 +29,7 @@ public class Download extends ReactContextBaseJavaModule {
     public static String description;
     public DownloadManager mDownloadManager;
     public BroadcastReceiver broadcastReceiver;
+    WritableMap params= Arguments.createMap();
     public Download(ReactApplicationContext reactContext) {
         super(reactContext);
     }
@@ -96,7 +97,6 @@ public class Download extends ReactContextBaseJavaModule {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (msg.what == 1001) {
-                WritableMap params= Arguments.createMap();
                 params.putString("status",100*msg.arg1/msg.arg2+"");
                 sendEvent(getReactApplicationContext(),"downloadZipStatus",params);
             }
@@ -107,9 +107,13 @@ public class Download extends ReactContextBaseJavaModule {
         Cursor cursor=mDownloadManager.query(new DownloadManager.Query().setFilterById(downloadid));
         if (cursor == null){
             //下载失败
+            params.putString("status","error");
+            sendEvent(getReactApplicationContext(),"downloadZipStatus",params);
         } else {
             if (!cursor.moveToFirst()){
                 //下载失败
+                params.putString("status","error");
+                sendEvent(getReactApplicationContext(),"downloadZipStatus",params);
                 if (!cursor.isClosed()){
                     cursor.close();
                 }
@@ -127,7 +131,6 @@ public class Download extends ReactContextBaseJavaModule {
             if(!cursor.isClosed()){
                 cursor.close();
             }
-
         }
     }
     private void listener(final long Id) {
@@ -147,13 +150,16 @@ public class Download extends ReactContextBaseJavaModule {
                         try {
                             ZipFolder.UnZipFolder("/mnt/sdcard"+root+"/bundle.zip",root);
                             zip.delete();
+                            params.putString("status","success");
                         } catch (Exception e) {
                             e.printStackTrace();
+                            params.putString("status","decompressionError");
                         }
+                        sendEvent(getReactApplicationContext(),"downloadZipStatus",params);
+                    }else{
+                        params.putString("status","error");
+                        sendEvent(getReactApplicationContext(),"downloadZipStatus",params);
                     }
-                    WritableMap params= Arguments.createMap();
-                    params.putString("status","success");
-                    sendEvent(getReactApplicationContext(),"downloadZipStatus",params);
                 }
             }
         };

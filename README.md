@@ -1,4 +1,4 @@
-实践过程CSDN有写
+实践过程 CSDN 有写
 https://blog.csdn.net/sinat_35093406/article/details/87938040
 
 # react-native-hot-deployment
@@ -13,40 +13,62 @@ https://blog.csdn.net/sinat_35093406/article/details/87938040
 
 ### Manual installation
 
-
 #### Android
 
 1. Open up `android/app/src/main/java/[...]/MainApplication.java`
-  - Add `import com.xiaomo.HotDeploymentPackage;;` to the imports at the top of the file
-  - Add `new HotDeploymentPackage()` to the list returned by the `getPackages()` method
+
+- Add `import com.xiaomo.HotDeploymentPackage;;` to the imports at the top of the file
+- Add `new HotDeploymentPackage()` to the list returned by the `getPackages()` method
 
 2. Append the following lines to `android/settings.gradle`:
-  	```
-  	include ':react-native-hot-deployment'
-  	project(':react-native-hot-deployment').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-hot-deployment/android')
-  	```
+
+   ```
+   include ':react-native-hot-deployment'
+   project(':react-native-hot-deployment').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-hot-deployment/android')
+   ```
 
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
-  	```
-    compile project(':react-native-hot-deployment')
-  	```
+   ```
+   compile project(':react-native-hot-deployment')
+   ```
 4. add `MainApplication`
-	```
-    import java.io.File;
-    
-    @Override
-    protected String getJSBundleFile() {
-      String jsBundleFile =  getFilesDir().getAbsolutePath()+"/index.android.bundle";
-      File file = new File(jsBundleFile);
-      if(file != null && file.exists()) {
-        return jsBundleFile;
-      } else {
-        return super.getJSBundleFile();
-      }
-    }
-	```
+
+   ```
+   import android.content.SharedPreferences;
+   import android.content.pm.PackageInfo;
+   import android.content.pm.PackageManager;
+   import java.io.File;
+   private SharedPreferences sharedPreferences;
+
+   private String newVersion = "";
+   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+     @Override
+     protected String getJSBundleFile() {
+       PackageManager pm = getApplicationContext().getPackageManager();
+       PackageInfo pi;
+       try {
+           pi = pm.getPackageInfo(getApplicationContext().getPackageName(), 0);
+           newVersion = pi.versionName;
+       } catch (PackageManager.NameNotFoundException e) {
+           e.printStackTrace();
+       }
+       sharedPreferences=getSharedPreferences("appVersion.xml",MODE_PRIVATE);
+       String oldVersion=sharedPreferences.getString("version","0.0.0");
+       String jsBundleFile =  getFilesDir().getAbsolutePath()+"/index.android.bundle";
+       File file = new File(jsBundleFile);
+       int oldVersionBack=Integer.parseInt(oldVersion.replaceAll("\\.",""));
+       int newVersionBack=Integer.parseInt(newVersion.replaceAll("\\.",""));
+       if((oldVersion.equals("0.0.0")|| oldVersionBack>=newVersionBack)&& file != null && file.exists()) {
+         return jsBundleFile;
+       } else {
+         return super.getJSBundleFile();
+       }
+     }
+   }
+   ```
 
 ## Usage
+
 ```javascript
 import RNReactNativeHotpush from 'react-native-hot-deployment';
 
@@ -72,7 +94,11 @@ this.listener = DeviceEventEmitter.addListener('downloadZipStatus', (e) => {
 	if (e && e.status === "success") {
 		//下载成功
 		RestartApp.Restart()
-	} else if (e && e.status) {
+  } else if(e && e.status === "error") {
+    //下载失败
+  }else if(e && e.status === "decompressionError") {
+    //解压bundle.zip文件失败
+  }else if (e && e.status) {
 		//下载进度
 		console.log("下载进度====>" + e.status + "%")
 	} else {
@@ -84,7 +110,7 @@ this.listener = DeviceEventEmitter.addListener('downloadZipStatus', (e) => {
 RestartApp.Restart()
 
 
-//一般来说，后端需要提供一个接口用来判断是否需要更新和以什么方式来更新。 
+//一般来说，后端需要提供一个接口用来判断是否需要更新和以什么方式来更新。
 //下载安装包的方式只需要调用DownloadApk.downloading(url, "描述");
 //热更新方式则须使用以下命令打包资源文件。
 react-native bundle --platform android --dev false --entry-file index.js  --bundle-output bundle_zip/index.android.bundle  --assets-dest bundle_zip
@@ -104,4 +130,3 @@ android{defaultconfig{versionName appVersion}}
 
 //会android原生的同学可以把插件拉取下来根据需求自行更改
 ```
-  
