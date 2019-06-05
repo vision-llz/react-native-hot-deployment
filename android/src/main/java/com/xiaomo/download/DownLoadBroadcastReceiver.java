@@ -6,16 +6,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Environment;
 import android.widget.Toast;
 import java.io.File;
 import android.os.Build;
 import android.support.v4.content.FileProvider;
 
-
 public class DownLoadBroadcastReceiver extends BroadcastReceiver {
 
     public void installApp(Context context) {
-//        File file = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), DownloadApk.description);
+        // File file = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "hotpush.apk");
         String root = context.getFilesDir().getAbsolutePath();
         File file = new File("/sdcard/Download","hotpush.apk");
         String jsBundleFile =  context.getFilesDir().getAbsolutePath()+"/index.android.bundle";

@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <application>
         <receiver android:name="com.xiaomo.download.DownLoadBroadcastReceiver">
             <intent-filter>
@@ -13,14 +14,14 @@
             </intent-filter>
         </receiver>
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="com.xiaomo.download.HotpushFileProvider"
             android:authorities="com.xiaomo.hotDeploymentPackage.fileprovider"
             android:grantUriPermissions="true"
             android:exported="false">
             <!-- 元数据 -->
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
+                android:resource="@xml/hot_push_file_paths" />
         </provider>
         <service
             android:process=":restart"

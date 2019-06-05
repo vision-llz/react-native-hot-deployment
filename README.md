@@ -70,18 +70,9 @@ https://blog.csdn.net/sinat_35093406/article/details/87938040
 ## Usage
 
 ```javascript
-import RNReactNativeHotpush from 'react-native-hot-deployment';
-
 // TODO: What to do with the module?
-RNReactNativeHotpush;
-
-//js中
 import { NativeModules } from "react-native";
-module.exports={
-	DownloadApk:NativeModules.DownloadApk,
-    Download:NativeModules.Download,
-    RestartApp:NativeModules.RestartApp
-};
+const { HotPushVersion, Download, DownloadApk, RestartApp } = NativeModules;
 
 //下载安装包，下载完成后自动跳转安装界面
 DownloadApk.downloading(url, "描述");
@@ -92,7 +83,9 @@ Download.downloading(url);
 //下载进度监听，下载完成后可调用RestartApp.Restart()重启app
 this.listener = DeviceEventEmitter.addListener('downloadZipStatus', (e) => {
 	if (e && e.status === "success") {
-		//下载成功
+    //下载成功
+    //需要传入最新版本号，目前插件只支持版本号格式为x.x.x
+    HotPushVersion.updataVersion(version);
 		RestartApp.Restart()
   } else if(e && e.status === "error") {
     //下载失败

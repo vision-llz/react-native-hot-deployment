@@ -29,7 +29,7 @@ public class Download extends ReactContextBaseJavaModule {
     public static String description;
     public DownloadManager mDownloadManager;
     public BroadcastReceiver broadcastReceiver;
-    WritableMap params= Arguments.createMap();
+    WritableMap params;
     public Download(ReactApplicationContext reactContext) {
         super(reactContext);
     }
@@ -97,6 +97,7 @@ public class Download extends ReactContextBaseJavaModule {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (msg.what == 1001) {
+                params = Arguments.createMap();
                 params.putString("status",100*msg.arg1/msg.arg2+"");
                 sendEvent(getReactApplicationContext(),"downloadZipStatus",params);
             }
@@ -107,11 +108,13 @@ public class Download extends ReactContextBaseJavaModule {
         Cursor cursor=mDownloadManager.query(new DownloadManager.Query().setFilterById(downloadid));
         if (cursor == null){
             //下载失败
+            params = Arguments.createMap();
             params.putString("status","error");
             sendEvent(getReactApplicationContext(),"downloadZipStatus",params);
         } else {
             if (!cursor.moveToFirst()){
                 //下载失败
+                params = Arguments.createMap();
                 params.putString("status","error");
                 sendEvent(getReactApplicationContext(),"downloadZipStatus",params);
                 if (!cursor.isClosed()){
@@ -147,6 +150,7 @@ public class Download extends ReactContextBaseJavaModule {
                     Log.d("zip",zip.getPath());
                     if (zip.exists()){
                         Log.d("zip",zip.getName());
+                        params = Arguments.createMap();
                         try {
                             ZipFolder.UnZipFolder("/mnt/sdcard"+root+"/bundle.zip",root);
                             zip.delete();
