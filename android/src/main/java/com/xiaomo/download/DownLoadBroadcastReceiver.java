@@ -60,7 +60,6 @@ public class DownLoadBroadcastReceiver extends BroadcastReceiver {
 
             if (myDownload.moveToFirst()) {
                 int status = myDownload.getInt(myDownload.getColumnIndex(DownloadManager.COLUMN_STATUS));
-
                 if (status == DownloadManager.STATUS_SUCCESSFUL) {
                     installApp(context);
                 } else {
