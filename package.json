@@ -1,8 +1,8 @@
 {
   "_from": "react-native-hot-deployment",
-  "_id": "react-native-hot-deployment@1.3.4",
+  "_id": "react-native-hot-deployment@1.3.7",
   "_inBundle": false,
-  "_integrity": "sha1-QuGHugu6ddd4ZkVfgRQns9rtFqg=",
+  "_integrity": "sha1-lX8O+K4LrxGur3+2HXjf3JROUTI=",
   "_location": "/react-native-hot-deployment",
   "_phantomChildren": {},
   "_requested": {
@@ -19,10 +19,14 @@
     "#USER",
     "/"
   ],
-  "_resolved": "http://registry.npm.taobao.org/react-native-hot-deployment/download/react-native-hot-deployment-1.0.2.tgz",
-  "_shasum": "42e187ba0bba75d77866455f811427b3daed16a8",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Txiaomo/react-native-hot-deployment.git"
+  },
+  "_resolved": "https://registry.npm.taobao.org/react-native-hot-deployment/download/react-native-hot-deployment-1.3.7.tgz",
+  "_shasum": "957f0ef8ae0baf11aeaf7fb61d78dfdc944e5132",
   "_spec": "react-native-hot-deployment",
-  "_where": "G:\\wms-pda",
+  "_where": "F:\\vision\\RNDemo",
   "author": {
     "name": "xiaomo"
   },
@@ -41,5 +45,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.3.4"
+  "version": "1.3.7"
 }
